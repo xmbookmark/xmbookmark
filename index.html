@@ -112,9 +112,19 @@
 
     <script>
         // 内联JavaScript脚本
-        document.getElementById('floatingButton').addEventListener('click', function() {
-            var menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        // document.getElementById('floatingButton').addEventListener('click', function() {
+        //     var menu = document.getElementById('menu');
+        //     menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        // });
+        var floatingButton = document.getElementById('floatingButton');
+        var menu = document.getElementById('menu');
+
+        floatingButton.addEventListener('mouseover', function() {
+        menu.style.display = 'block';
+        });
+
+        menu.addEventListener('mouseout', function() {
+        menu.style.display = 'none';
         });
     </script>
 </body>
@@ -132,7 +142,7 @@
                         </br><!--div align="center"-->
           <!--img src="img/gzgzg.png" width="292" height="105"-->
        </div>
-                        <i class="linecons-tag" style="margin-right: 7px;" id="top"></i><h2 align="center">小胡小胡的书签</h2></li>
+                        <i class="linecons-tag" style="margin-right: 7px;" id="top"></i><h2 align="center">小莫导航</h2></li>
                         <!-- h4 align="center"><a href="">分类版</a> <a href=""><color="color:#2100E0">主页版</color></a></h4--> 
     <div class="container" style="margin-top: 100px; position: relative; z-index: 100;">
         <!--搜索开始-->
