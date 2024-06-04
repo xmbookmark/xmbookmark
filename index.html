@@ -119,18 +119,32 @@
         var floatingButton = document.getElementById('floatingButton');
         var menu = document.getElementById('menu');
 
+        var isMenuVisible = false;
+
         floatingButton.addEventListener('mouseover', function() {
                 menu.style.display = 'block';
-                // if(menu.style.display = 'block'){
-                //         menu.style.display = 'block';
-                // }
+                isMenuVisible = true;
         });
 
-        floatingButton.addEventListener('mouseout', function() {
-                menu.style.display = 'none';
-                // if(menu.style.display = 'none'){
-                //         menu.style.display = 'none';
-                // }
+        menu.addEventListener('mouseover', function() {
+                isMenuVisible = true;
+        });
+
+        menu.addEventListener('click', function() {
+        // 处理菜单点击事件的逻辑
+        });
+
+        document.addEventListener('mouseover', function(event) {
+                if (!event.target.closest('#menu') && !event.target.closest('#floatingButton') && !isMenuVisible) {
+                        menu.style.display = 'none';
+                }
+        });
+
+        document.addEventListener('mouseout', function(event) {
+                if (!event.relatedTarget || (!event.relatedTarget.closest('#menu') && !event.relatedTarget.closest('#floatingButton'))) {
+                        isMenuVisible = false;
+                        menu.style.display = 'none';
+                }
         });
     </script>
 </body>
